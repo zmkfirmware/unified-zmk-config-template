@@ -70,7 +70,43 @@ jobs:
         run: west zephyr-export
       - name: West Build (${{ steps.variables.outputs.display-name }})
         run: |
-          west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/config ${{ steps.variables.outputs.extra-cmake-args }} ${{ matrix.cmake-args }}
+        shell: bash
+        run: |
+          west build -s zmk/app -b ${{ matrix.board }} -- -DZMK_CONFIG=${GITHUB_WORKSPACE}/config ${{ steps.variables.outputs.extra-cmake-args }} ${{ matrix.cmake-args }} 2>&1 | tee build.log
+      - name: Troubleshooting (${{ steps.variables.outputs.display-name }})
+        if: ${{ failure() }}
+        shell: bash
+        run: |
+          # Provide helpful GitHub annotations if build fails:
+          echo "::notice::Build failed. See https://zmk.dev/docs/troubleshooting/ for help."
+
+          # Check that a given sed command ($1) returns a match when run over the
+          # build.log. Store the output of sed for further parsing.
+          match() {
+            output="$(sed -nE "$1" build.log)"
+            test -n "$output"
+          }
+
+          # Provide annotation for errors due to incorrect keycodes (e.g. `&kp ENTRE`)
+          # Error: nice_nano.dts.pre.tmp:74.137-138 syntax error
+          if match 's/^.+dts.pre.tmp:([0-9]+)\.([0-9]+).+ syntax error.*$/\1 \2/p'; then
+            read line_pos char_pos <<< $output
+            line=$(sed -n ${line_pos}p build/zephyr/${{ matrix.board }}.dts.pre.tmp)
+            value=$(cut -c${char_pos}- <<< $line | cut -f1 -d\ )
+            echo "::error::Error: Unable to parse \"${value}\" from line: ${line}"
+
+          # Provide annotation for errors due to missing parameters (e.g. `&mt LALT`):
+          # zephyr/include/generated/devicetree_unfixed.h:1415:44: error: 'DT_N_S_keymap_S_base_layer_P_bindings_IDX_1_PH_P_label' undeclared here (not in a function)
+          elif match 's/^.+error: .DT_N_S_keymap_S_(.+)_P_bindings_IDX_([0-9])_PH_P_label. undeclared here.+$/\1 \2/p'; then
+            read layer index <<< $output
+            echo "::error::Error: Problem with index ${index} on layer \"${layer}\"."
+
+          # Provide annotation for generic error messages such as:
+          # nice_nano.dts.pre.tmp:734.14-741.5: ERROR (phandle_references): /keymap/base_layer: Reference to non-existent node or label "kc"
+          elif match 's/^.+dts\.pre\.tmp\S+ ERROR (.+)$/\1/p'; then
+            echo "::error::Error ${output}"
+
+          fi
       - name: ${{ steps.variables.outputs.display-name }} DTS File
         if: ${{ always() }}
         run: |
