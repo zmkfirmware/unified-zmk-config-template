@@ -48,7 +48,7 @@ OUTPUT_ZMK_CONFIG=1 make
 The configs with then be outputted to the `firmware` directory along with the firmware files.
 
 #### Build Cache
-A docker volume is used to cache the build artifacts, this allows subsequent builds to compile faster.
+A docker volume is used to cache the build artifacts, allowing subsequent builds to compile faster.
 
 ### Cleanup
 

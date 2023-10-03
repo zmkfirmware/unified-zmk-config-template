@@ -15,7 +15,8 @@ WORKDIR /app
 
 COPY config/west.yml config/west.yml
 
-RUN west init -l config \
+RUN mkdir -p build \
+    && west init -l config \
     && west update \
     && west zephyr-export
 
