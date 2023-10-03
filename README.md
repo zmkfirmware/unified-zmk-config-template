@@ -59,6 +59,8 @@ The compiled firmware files and docker volume build cache can be deleted with `m
 
 The built docker container can be deleted with `make distclean`. This might be necessary if you want to rebuild the docker container or update the ZMK version used to compile your firmware.
 
+Of course, you can also use regular Docker commands to manage the image/build cache.
+
 ## Flashing firmware
 
 Follow the ZMK instructions on [Flashing UF2 Files](https://zmk.dev/docs/user-setup#flashing-uf2-files) to flash the firmware.
