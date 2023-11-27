@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+  # Additional modules containing boards/shields/custom code can be listed here as well
+  # See https://docs.zephyrproject.org/latest/develop/west/manifest.html#projects
   projects:
     - name: zmk
       remote: zmkfirmware
