@@ -1,0 +1,16 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // 这里定义了你按下按键后电脑收到的字符
+            // 目前分别是 字母 A、B、C、D
+            bindings = <
+                &kp A    &kp B    &kp C    &kp D
+            >;
+        };
+    };
+};
