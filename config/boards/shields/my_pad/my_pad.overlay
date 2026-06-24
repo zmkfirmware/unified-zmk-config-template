@@ -1,0 +1,16 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "KSCAN";
+        input-gpios
+            = <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 按键1: P0.17
+            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 按键2: P0.20
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 按键3: P0.22
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 按键4: P0.24
+            ;
+    };
+};
