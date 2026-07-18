@@ -111,10 +111,10 @@
 
         default_layer {
             bindings = <
-&lt_to_layer_0 6 Q  &kp W         &kp E         &kp R                  &kp T        &trans                   &trans       &kp Y  &kp U  &lt 5 I        &kp O    &kp P
-&kp A               &kp S         &kp D         &kp F                  &kp G        &kp ESC                  &kp ESC      &kp H  &kp J  &kp K          &kp L    &kp MINUS
-&mt LEFT_SHIFT Z    &kp X         &kp C         &kp V                  &kp B        &kp TAB                  &kp TAB      &kp N  &kp M  &kp COMMA      &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 1 INT5  &lt 2 SPACE  &lt_to_layer_0 3 INT4    &lt 2 ENTER                &kp RIGHT_ALT  &trans   &kp ESCAPE
+&lt_to_layer_0 6 Q  &kp W         &kp E         &kp R                  &kp T        &trans                   &trans       &kp Y   &kp U   &lt 5 I        &kp O    &kp P
+&kp A               &kp S         &kp D         &kp F                  &kp G        &kp ESC                  &kp ESC      &kp H   &kp J   &kp K          &kp L    &kp MINUS
+&mt LEFT_SHIFT Z    &kp X         &kp C         &kp V                  &kp B        &kp TAB                  &kp TAB      &kp N   &kp M   &kp COMMA      &kp DOT  &mt RIGHT_SHIFT SLASH
+&kp LCTRL           &kp LEFT_WIN  &kp LEFT_ALT  &lt_to_layer_0 1 INT5  &lt 2 SPACE  &lt_to_layer_0 3 INT4    &lt 2 ENTER  &trans  &trans  &kp RIGHT_ALT  &trans   &kp ESCAPE
             >;
         };
 
@@ -123,7 +123,7 @@
 &kp SLASH    &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp MINUS     &trans    &trans  &kp LS(EQUAL)  &kp LS(N8)    &kp LS(N9)    &kp LS(LBKT)  &kp LBKT
 &kp LS(SQT)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)  &kp LS(SEMI)  &trans    &trans  &kp EQUAL      &kp RBKT      &kp NUHS      &kp SEMI      &kp SQT
 &trans       &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &trans        &trans    &trans  &kp LS(INT1)   &kp LS(RBKT)  &kp LS(NUHS)  &kp SLASH     &kp INT1
-&trans       &trans      &trans      &trans      &trans        &trans    &trans                               &trans        &trans        &kp LS(INT3)
+&trans       &trans      &trans      &trans      &trans        &trans    &trans  &trans         &trans        &trans        &trans        &kp LS(INT3)
             >;
         };
 
@@ -132,7 +132,7 @@
 &kp SLASH          &kp N7  &kp N8  &kp N9  &kp MINUS     &trans       &trans  &trans  &kp F7  &kp F8  &kp F9  &kp F10
 &kp LS(SQT)        &kp N4  &kp N5  &kp N6  &kp LS(SEMI)  &trans       &trans  &trans  &kp F4  &kp F5  &kp F6  &kp F11
 &mt LEFT_SHIFT N0  &kp N1  &kp N2  &kp N3  &kp PERIOD    &kp EQUAL    &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F12
-&trans             &kp N0  &trans  &trans  &trans        &trans       &trans                  &trans  &trans  &trans
+&trans             &kp N0  &trans  &trans  &trans        &trans       &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -141,7 +141,7 @@
 &kp ESCAPE      &kp LC(LS(TAB))     &kp UP_ARROW    &kp LC(TAB)          &trans         &trans    &trans  &trans        &kp LC(LS(TAB))     &kp UP_ARROW    &kp LC(TAB)          &trans
 &kp LA(LEFT)    &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LA(RIGHT)  &trans    &trans  &kp LA(LEFT)  &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp LA(RIGHT)
 &kp LEFT_SHIFT  &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans         &trans    &trans  &trans        &kp LG(LEFT_ARROW)  &trans          &kp LG(RIGHT_ARROW)  &trans
-&trans          &trans              &trans          &trans               &trans         &trans    &trans                                    &trans          &trans               &trans
+&trans          &trans              &trans          &trans               &trans         &trans    &trans  &trans        &trans              &trans          &trans               &trans
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
@@ -152,7 +152,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans                    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
             >;
         };
 
@@ -161,7 +161,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans                  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -170,7 +170,7 @@
 &trans  &trans        &trans        &trans        &trans  &trans    &trans       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &trans  &trans        &trans        &trans        &trans  &trans    &trans       &trans        &trans        &trans        &trans        &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans    &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans    &trans                                   &trans        &trans        &bt BT_CLR_ALL
+&trans  &trans        &trans        &trans        &trans  &trans    &trans       &trans        &trans        &trans        &trans        &bt BT_CLR_ALL
             >;
         };
     };
