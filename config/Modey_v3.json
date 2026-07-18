@@ -1,5 +1,5 @@
 {
-  "id": "mod_v3",
+  "id": "Modey",
   "name": "default_layout",
   "layouts": {
     "default_layout": {
@@ -50,6 +50,8 @@
         { "row": 3, "col":  4, "x":  4, "y": 3 },
         { "row": 3, "col":  5, "x":  5, "y": 3 },
         { "row": 3, "col":  7, "x":  7, "y": 3 },
+        { "row": 3, "col":  8, "x":  8, "y": 3 },
+        { "row": 3, "col":  9, "x":  9, "y": 3 },
         { "row": 3, "col": 10, "x": 10, "y": 3 },
         { "row": 3, "col": 11, "x": 11, "y": 3 },
         { "row": 3, "col": 12, "x": 12, "y": 3 }
